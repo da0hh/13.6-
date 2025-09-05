@@ -1,0 +1,32 @@
+#include <iostream>
+#include <string>
+#include <cassert>
+#include <vector>
+
+using namespace std;
+
+
+int main() {
+    setlocale(LC_ALL, "RU");
+    int sizeMassive, nums, numsDel;
+    cout << "Input vector size: "; cin >> sizeMassive;
+
+    vector<int> vec;
+    for (int i = 0; i < sizeMassive; i++) {
+        cout << "Input numbers: "; cin >> nums;
+        vec.push_back(nums);
+    }
+
+    cout << "Input numbers to delete: "; cin >> numsDel;
+
+    for (size_t i = 0; i < vec.size(); i++){
+        if (vec[i] == numsDel) {
+            vec[i] = vec.back();
+            vec.pop_back();
+         }
+    }
+    cout << "Result: ";
+    for (int i = 0; i < vec.size();i++) {
+        cout << vec[i];
+    }
+}
