@@ -1,0 +1,35 @@
+#include <iostream>
+#include <string>
+#include <cassert>
+#include <vector>
+
+using namespace std;
+
+
+int main() {
+    setlocale(LC_ALL, "RU");
+    float goodsPrices, final = 0.f; int index;
+
+    cout << "Input prices for products(to stop enter negative num): \n"; 
+    vector <float> prices;
+
+    do {
+        cin >> goodsPrices;
+        prices.push_back(goodsPrices);
+    } while (goodsPrices > -1);
+
+    prices.pop_back();
+
+    cout << "Enter what would u buy? "; 
+    do {
+        cin >> index;
+        if (index > prices.size()) {
+            cout << "Error.";
+            return false;
+        }
+        if (index <= -1) break;
+        else final += prices[index];
+    } while (index > -1);
+   
+    cout << "Full price: " << final;
+}
